@@ -30,7 +30,7 @@
                         <ol>
                             <?php
 
-                            $i = $rows["Kode"];
+                            $i = $rows["kode"];
                             $menu = "SELECT * FROM file_mr WHERE kode=$i";
                             $file = $this->db->query($menu)->result_array();
 

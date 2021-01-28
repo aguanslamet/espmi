@@ -7,8 +7,12 @@ class Halaman extends CI_Controller
     {
 
 
+        $query =  $this->db->get_where('isi_manajemenrefensi', ['link_seo' => "E-SPMI"]);
+        $row = $query->row_array();
+        $data['rows'] = $row;
+
         $this->load->view('halaman/index');
-        $this->load->view('halaman/utama');
+        $this->load->view('halaman/utama', $data);
         $this->load->view('halaman/sidebar');
         $this->load->view('halaman/footer');
     }

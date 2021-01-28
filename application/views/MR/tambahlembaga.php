@@ -23,15 +23,7 @@
                  </select>
 
              </div>
-             <div class="form-group">
-                 <select name="kode" id="kode" class="form-control">
-                     <?php foreach ($menu as $m) : ?>
-                         <option value="<?= $i++ ?>">
-                             <?= $m['Kode_setandar']; ?>
-                         </option>
-                     <?php endforeach; ?>
-                 </select>
-             </div>
+
          </div>
          <div class="col-lg-8">
              <div class="form-group">

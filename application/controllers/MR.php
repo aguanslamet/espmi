@@ -10,7 +10,7 @@ class MR extends CI_Controller
         $data['title'] = 'Halaman Lembaga';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->model('lembaga_model', 'lembaga');
-        $this->db->order_by("kode", "ASC");
+        $this->db->order_by("id", "ASC");
         $query = $this->db->get_where('isi_manajemenrefensi');
         $row = $query->result_array();
         $data['rows'] = $row;
@@ -32,7 +32,6 @@ class MR extends CI_Controller
         $data['title'] = 'Tambah Lembaga';
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
-        $this->form_validation->set_rules('kode', 'kode', 'required');
         $this->form_validation->set_rules('isi', 'isi', 'required');
 
 
@@ -45,7 +44,7 @@ class MR extends CI_Controller
         } else {
 
             $data = [
-                'kode' => $this->input->post('kode'),
+
                 'judul' => $this->input->post('judul'),
                 'link_seo' => url_title($this->input->post('judul'), 'dash', TRUE),
                 'image' => '',
