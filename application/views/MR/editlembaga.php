@@ -6,12 +6,28 @@
 
         <?= form_open_multipart(); ?>
         <input type="hidden" name="id" value="<?= $user['id']; ?>">
-        <input type="hidden" name="id" value="<?= $post['id']; ?>">
+        <input type="hidden" name="kode_mr" value="<?= $post['kode_mr']; ?>">
         <div class="row">
             <div class="col-lg-8">
+                <label for="status">urutan</label>
+                <div class="form-group">
+                    <?php
+                    $i = 1;
+                    $queryMenu = "SELECT * FROM sub_sub_standar ";
+                    $menu = $this->db->query($queryMenu)->result_array();
+                    ?>
+                    <select name="kode_mr" id="kode_mr" class="form-control">
+                        <?php foreach ($menu as $m) : ?>
+                            <option value="<?= $m['kode_sub_sub_standar']; ?>">
+                                <?= $m['kode_sub_sub_standar']; ?> <?= $m['nama_sub_sub_standar']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+
+                </div>
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="title" id="judul" name="judul" class="form-control" value="<?= $post['judul']; ?>" readonly>
+                    <input type="title" id="nama" name="nama" class="form-control" value="<?= $post['nama']; ?>" readonly>
 
                 </div>
                 <div class="form-group">
@@ -33,8 +49,8 @@
             </div>
             <div class="form-group">
                 <label for="body">Body</label>
-                <textarea class="form-control tinymce" name="isi" id="isi" cols="150" rows="13"><?= $post['isi']; ?></textarea>
-                <?= form_error('isi', '<small class="text-danger pl-3">', '</small>'); ?>
+                <textarea class="form-control tinymce" name="deskripsi" id="deskripsi" cols="150" rows="13"><?= $post['deskripsi']; ?></textarea>
+                <?= form_error('deskripsi', '<small class="text-danger pl-3">', '</small>'); ?>
             </div>
             <div class="form-group">
             </div>

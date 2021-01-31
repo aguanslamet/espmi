@@ -15,7 +15,7 @@ class Halaman extends CI_Controller
     public function detail()
     {
 
-        $query = $this->db->get_where('isi_manajemenrefensi',);
+        $query = $this->db->get_where('manajemen_refrensi',);
         $row = $query->row_array();
         $data['rows'] = $row;
         $this->load->view('Tampilan/index');

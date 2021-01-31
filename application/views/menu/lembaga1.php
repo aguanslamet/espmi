@@ -7,13 +7,13 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <?= form_error('title', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                <?= form_error('image', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                <?= form_error('deskription', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= form_error('urutan', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= form_error('deskripsi', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
                 <?= $this->session->flashdata('message'); ?>
 
-                <a href="<?= base_url('MR/tambahlembaga'); ?>" class="btn btn-primary mb-3">Tambah Isi Halaman </a>
+                <a href="<?= base_url('menu/tambahmenul1'); ?>" class="btn btn-primary mb-3">Tambah Isi standar </a>
                 <!-- DataTales -->
                 <div class="card shadow mb-4">
                     <div class="card-body">
@@ -22,10 +22,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">no</th>
-                                        <th scope="col">Judul</th>
-                                        <th scope="col">image</th>
-                                        <th scope="col">Link_SEO</th>
-                                        <th scope="col">opsi</th>
+                                        <th scope="col">nama</th>
+                                        <th scope="col">urutan</th>
+                                        <th scope="col">deskripsi</th>
+                                        <th scope="col">pilihan</th>
                                     </tr>
                                 </thead>
 
@@ -34,12 +34,12 @@
                                     foreach ($rows as $ps) : ?>
                                         <tr>
                                             <th scope="row"><?= $i++; ?></th>
-                                            <td><?= $ps['nama']; ?></td>
-                                            <td><img src="<?= base_url('./assets/img/isi/') . $ps['image']; ?>" width="100" alt=""></td>
-                                            <td><?= $ps['link_seo']; ?></td>
+                                            <td><?= $ps['nama_standar']; ?></td>
+                                            <td><?= $ps['kode_standar']; ?></td>
+                                            <td><?= $ps['deskripsi']; ?></td>
                                             <td>
-                                                <a class="badge badge-success" href="<?= base_url('MR/editlembaga/') . $ps['kode_mr']; ?>">Edit</a>
-                                                <a class="badge badge-danger" href="<?= base_url('MR/hapuslembaga/') . $ps['kode_mr']; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>
+                                                <a class="badge badge-success" href="<?= base_url('menu/editmenul1/') . $ps['kode_standar']; ?>">Edit</a>
+                                                <a class="badge badge-danger" href="<?= base_url('menu/hapusmenulembaga/') . $ps['kode_standar']; ?>" onclick="return confirm('apakah anda yakin ingin mnghapus data?');">Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -7,7 +7,7 @@ class Halaman extends CI_Controller
     {
 
 
-        $query =  $this->db->get_where('isi_manajemenrefensi', ['link_seo' => "E-SPMI"]);
+        $query =  $this->db->get_where('manajemen_refrensi', ['link_seo' => "E-SPMI"]);
         $row = $query->row_array();
         $data['rows'] = $row;
 
@@ -19,7 +19,7 @@ class Halaman extends CI_Controller
     public function detail()
     {
 
-        $query = $this->db->get_where('isi_manajemenrefensi', array('link_seo' => $this->uri->segment(3)));
+        $query = $this->db->get_where('manajemen_refrensi', array('link_seo' => $this->uri->segment(3)));
         $row = $query->row_array();
         $data['rows'] = $row;
 
@@ -30,7 +30,7 @@ class Halaman extends CI_Controller
     }
     public function Download($id)
     {
-        $post = $this->db->get_where('file_mr', ['id' => $id])->row_array();
+        $post = $this->db->get_where('dokumen_pendukung', ['id' => $id])->row_array();
         $name = $this->uri->segment(3);
         $data = file_get_contents("asset/file/pendukung/" . $name);
         force_download($name, $data);

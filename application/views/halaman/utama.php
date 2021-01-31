@@ -8,7 +8,7 @@
                 <div class="card-body">
 
                     <h2 class="card-title">
-                        <?= $rows['judul'] ?><small> </small>
+                        <?= $rows['nama'] ?><small> </small>
                     </h2>
                     <div class="post-meta">
 
@@ -23,25 +23,25 @@
                         </div>
                     <?php } ?>
                     <div class="card-text">
-                        <?= $rows['isi']; ?>
+                        <?= $rows['deskripsi']; ?>
                     </div>
                     <P>
-                        <ol>
-                            <?php
+                    <ol>
+                        <?php
 
-                            $i = $rows["kode"];
-                            $menu = "SELECT * FROM file_mr WHERE kode=$i";
-                            $file = $this->db->query($menu)->result_array();
+                        $i = $rows["kode_mr"];
+                        $menu = "SELECT * FROM dokumen_pendukung WHERE kode_mr=$i";
+                        $file = $this->db->query($menu)->result_array();
 
-                            ?>
-                            <?php foreach ($file as $f) : ?>
-                                <li>
-                                    <td> <?= $f['dokumen'] ?> (<a href="<?php echo base_url() . "halaman/download/" . $f['file']; ?>">Download
-                                        </a>)</td>
-                                </li>
+                        ?>
+                        <?php foreach ($file as $f) : ?>
+                            <li>
+                                <td> <?= $f['nama'] ?> (<a href="<?php echo base_url() . "halaman/download/" . $f['file']; ?>">Download
+                                    </a>)</td>
+                            </li>
 
-                            <?php endforeach; ?>
-                        </ol>
+                        <?php endforeach; ?>
+                    </ol>
                 </div>
             </div>
         </div>

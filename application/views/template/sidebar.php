@@ -55,8 +55,11 @@
                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 
                              <div class="bg-white py-2 collapse-inner rounded">
-                                 <a class="collapse-item" href="<?= base_url('MR') ?>">modul conten</a>
+                                 <a class="collapse-item" href="<?= base_url('MR') ?>">modul Refrensi</a>
                                  <a class="collapse-item" href="<?= base_url('MR/filemr') ?>">dokumen pendukung</a>
+                                 <a class="collapse-item" href="<?= base_url('menu/menulembaga1') ?>">Standar</a>
+                                 <a class="collapse-item" href="<?= base_url('menu/substandar') ?>">SUB Standar</a>
+                                 <a class="collapse-item" href="<?= base_url('menu/subsubstandar') ?>">SUB Sub Standar</a>
 
 
                              </div>

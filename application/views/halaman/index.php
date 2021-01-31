@@ -67,42 +67,42 @@
                             </li>
 
                             <?php
-                            $query1 = "SELECT * FROM menu_l1";
+                            $query1 = "SELECT * FROM standar";
                             $menu = $this->db->query($query1)->result_array();
                             ?>
                             <?php foreach ($menu as $m) : ?>
 
                                 <li class="dropdown dropdown-mega">
-                                    <a href="#" class="dropdown-toggle"><?= $m['Nama'] ?><i class="fa fa-caret-down"></i></a>
+                                    <a href="#" class="dropdown-toggle"><?= $m['nama_standar'] ?><i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li>
 
                                             <div class="dropdown-mega-content container">
                                                 <div class="row">
                                                     <div class="col-md-3">
-                                                        <h3><b><?= $m['Nama'] ?></b></h3>
+                                                        <h3><b><?= $m['nama_standar'] ?></b></h3>
                                                         <p><?= $m['deskripsi'] ?>
                                                     </div>
                                                     <?php
-                                                    $role = $m['menu_id'];
-                                                    $query2 = "SELECT menu_l2.*,menu_l1.* FROM menu_l2 JOIN menu_l1 ON menu_l2.id_l1=menu_l1.menu_id WHERE menu_l2.id_l1=$role";
+                                                    $role = $m['kode_standar'];
+                                                    $query2 = "SELECT sub_standar.*,standar.* FROM sub_standar JOIN standar ON sub_standar.kode_standar=standar.kode_standar WHERE sub_standar.kode_standar=$role";
                                                     $menu1 = $this->db->query($query2)->result_array();
                                                     ?>
                                                     <?php foreach ($menu1 as $m1) : ?>
 
                                                         <div class="col-md-3">
                                                             <span class="dropdown-mega-sub-title">
-                                                                <h4><?= $m1['Nama_sub'] ?></h4>
+                                                                <h4><?= $m1['nama_sub_standar'] ?></h4>
                                                             </span>
                                                             <ul class="dropdown-mega-sub-nav">
                                                                 <?php
-                                                                $role1 = $m1['id_menu2'];
-                                                                $query3 = " SELECT menu_l2.id_menu2,menu_l3.* FROM menu_l2 JOIN menu_l3 ON menu_l2.id_menu2=menu_l3.id_l2 WHERE menu_l2.id_menu2=$role1";
+                                                                $role1 = $m1['kode_sub_standar'];
+                                                                $query3 = " SELECT sub_standar.kode_sub_standar,sub_sub_standar.* FROM sub_standar JOIN sub_sub_standar ON sub_standar.kode_sub_standar=sub_sub_standar.kode_sub_standar WHERE sub_standar.kode_sub_standar=$role1";
                                                                 $menu2 = $this->db->query($query3)->result_array();
                                                                 ?>
                                                                 <?php foreach ($menu2 as $m2) : ?>
 
-                                                                    <li><a href="<?= base_url($m2['url']) ?>"><i class="fa fa-chevron-right" aria-hidden="true"></i> <?= $m2['Kode_setandar'] ?> <?= $m2['nama_submenu'] ?></a></li>
+                                                                    <li><a href="<?= base_url($m2['url']) ?>"><i class="fa fa-chevron-right" aria-hidden="true"></i> <?= $m2['nama_sub_sub_standar'] ?></a></li>
 
                                                                 <?php endforeach; ?>
                                                             </ul>

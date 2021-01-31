@@ -32,7 +32,7 @@
                 <div class="modal-body">Klik tombol "Keluar" untuk Kluar dari akun Anda</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                    <a class="btn btn-primary" href="<?= base_url('auth/logout') ?>">Keluar</a>
+                    <a class="btn btn-primary" href="<?= base_url('login/logout') ?>">Keluar</a>
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@
                                     foreach ($rows as $ps) : ?>
                                         <tr>
                                             <th scope="row"><?= $i++; ?></th>
-                                            <td><?= $ps['dokumen']; ?></td>
+                                            <td><?= $ps['nama']; ?></td>
                                             <td><?= $ps['file']; ?></td>
                                             <td>
                                                 <a class="badge badge-danger" href="<?= base_url('MR/hapusfilemr/') . $ps['id']; ?>" onclick="return confirm('anda yakin ingin mnghapus ini?');">Delete</a>
@@ -47,7 +47,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- /.container-fluid -->

@@ -53,7 +53,7 @@ class Login extends CI_Controller
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak ada Email yang terdaftar!</div>');
-            redirect('auth');
+            redirect('login');
         }
     }
 

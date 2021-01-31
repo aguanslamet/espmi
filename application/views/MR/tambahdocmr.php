@@ -9,23 +9,23 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <select name="kode" id="kode" class="form-control">
+                    <select name="kode_mr" id="kode_mr" class="form-control">
                         <?php
                         $i = 1;
-                        $queryMenu = "SELECT * FROM menu_l3 ";
+                        $queryMenu = "SELECT * FROM sub_sub_standar ";
                         $menu = $this->db->query($queryMenu)->result_array();
                         ?>
                         <?php foreach ($menu as $m) : ?>
-                            <option value="<?= $i++; ?>">
-                                <?= $m['Kode_setandar']; ?> <?= $m['nama_submenu']; ?>
+                            <option value="<?= $m['kode_sub_sub_standar'] ?>">
+                                <?= $m['nama_sub_sub_standar']; ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="dokumen">Tentang Dokumen</label>
-                    <input type="text" id="dokumen" name="dokumen" class="form-control" placeholder="dokumen Apa...">
-                    <?= form_error('title', '<small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" id="nama" name="nama" class="form-control" placeholder="dokumen Apa...">
+                    <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="input-group">
                     <div class="custom-file">
